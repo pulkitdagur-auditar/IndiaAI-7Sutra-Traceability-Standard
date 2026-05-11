@@ -1,0 +1,47 @@
+{
+
+"$schema": "http://json-schema.org/draft-07/schema#",
+
+"title": "7-Sutra Explainability Trace",
+
+"description": "Standardized metadata for 3ms logic reconstruction under Sutra 7.",
+
+"type": "object",
+
+"properties": {
+
+"trace_id": { "type": "string", "description": "Unique immutable audit ID" },
+
+"decision_timestamp": { "type": "string", "format": "date-time" },
+
+"model_version": { "type": "string", "description": "v2.4.1 etc." },
+
+"feature_weights": {
+
+"type": "array",
+
+"items": {
+
+"type": "object",
+
+"properties": {
+
+"feature_name": { "type": "string" },
+
+"weight_contribution": { "type": "number" },
+
+"threshold_delta": { "type": "number" }
+
+}
+
+}
+
+},
+
+"reconstruction_latency_ms": { "type": "number", "const": 3.124 }
+
+},
+
+"required": ["trace_id", "feature_weights", "reconstruction_latency_ms"]
+
+}
